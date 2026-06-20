@@ -1,13 +1,20 @@
-import { Response, NextFunction } from "express";
+import { Request, Response, NextFunction } from "express";
 
-export function authorizeRole(...roles: string[]) {
+export function authorizeRole(...allowedRoles: string[]) {
   return (req: any, res: Response, next: NextFunction) => {
-    const userRole = req.user?.role;
+    const user = req.user;
 
-    if (!roles.includes(userRole)) {
+    if (!user) {
+      return res.status(401).json({
+        success: false,
+        message: "Unauthorized",
+      });
+    }
+
+    if (!allowedRoles.includes(user.role)) {
       return res.status(403).json({
         success: false,
-        message: "Access denied",
+        message: "Forbidden: Access denied",
       });
     }
 
