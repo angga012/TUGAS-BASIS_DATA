@@ -15,6 +15,7 @@ export const addBooking = async (req: Request, res: Response, next: NextFunction
     });
   } catch (error) {
     // Jika ada error, lempar ke middleware error
+    // Jika ada error, lempar ke middleware error
     next(error);
   }
 };
