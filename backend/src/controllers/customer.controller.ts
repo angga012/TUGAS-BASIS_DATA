@@ -10,9 +10,9 @@ import {
 
 import { success, error } from "../utils/response";
 
-/* =========================
+/* 
    GET ALL CUSTOMERS
-========================= */
+*/
 export async function getCustomers(
   req: Request,
   res: Response

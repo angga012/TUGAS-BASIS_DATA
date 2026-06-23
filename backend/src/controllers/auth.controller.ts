@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import { registerUser, loginUser } from "../services/auth.service";
 
-/* =========================
+/*
    REGISTER
-========================= */
+*/
 export async function register(req: Request, res: Response) {
   try {
     const { full_name, email, password, role } = req.body;
