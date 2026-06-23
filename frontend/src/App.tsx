@@ -7,7 +7,6 @@ import Bookings from './pages/Bookings';
 import Payments from './pages/Payments';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Reports from './pages/Reports.tsx';
 import type { ReactNode } from 'react';
 
 // Komponen untuk memproteksi rute agar user harus login
@@ -33,7 +32,6 @@ export default function App() {
         <Route path="/schedules" element={<ProtectedRoute><Schedules /></ProtectedRoute>} />
         <Route path="/bookings" element={<ProtectedRoute><Bookings /></ProtectedRoute>} />
         <Route path="/payments" element={<ProtectedRoute><Payments /></ProtectedRoute>} />
-        <Route path="/reports" element={<ProtectedRoute><Reports/></ProtectedRoute>}/>
       </Routes>
     </Router>
   );

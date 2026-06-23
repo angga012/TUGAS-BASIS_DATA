@@ -8,20 +8,21 @@ export default function Schedules() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({ field_id: '', available_date: '', start_time: '', end_time: '' });
 
-  const loadSchedules = async () => {
-    setLoading(true);
-    try {
-      const data = await fetchSchedules();
-
-      console.log("SCHEDULE API:", data);
-
-      setSchedules(data.data || []);
-    } catch (err) {
-      console.error("Failed to load schedules", err);
-    } finally {
-      setLoading(false);
-    }
-  };
+const loadSchedules = async () => {
+  setLoading(true);
+  try {
+    const data = await fetchSchedules(); 
+    console.log("DEBUG API:", data);
+    
+    const result = Array.isArray(data) ? data : (data.data || []);
+    setSchedules(result);
+  } catch (err) {
+    console.error("Failed to load schedules", err);
+    setSchedules([]); 
+  } finally {
+    setLoading(false);
+  }
+};
 
   useEffect(() => {
     loadSchedules();

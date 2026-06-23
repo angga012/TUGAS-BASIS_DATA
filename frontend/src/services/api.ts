@@ -51,4 +51,4 @@ export const loginAndGetToken = async (email: string, password: string) => {
     localStorage.setItem('token', data.token);
   }
   return data;
-};
+};  
