@@ -17,10 +17,9 @@ const navLinks = [
   { name:'Pelanggan', icon:'👥', path:'/customers' },
   { name:'Lapangan', icon:'⚽', path:'/fields' },
   { name:'Jadwal', icon:'📅', path:'/schedules' },
-  { name:'Reservasi', icon:'📝', path:'/bookings' },
+  { name:'Pembayaran', icon:'💰', path:'/bookings' },
 
-  { name:'Pembayaran', icon:'💰', path:'/payments' },
-  { name:'Laporan', icon:'📊', path:'/reports' },
+  { name:'Riwayat Pembayaran', icon:'📝', path:'/payments' },
 ];
 
   return (
