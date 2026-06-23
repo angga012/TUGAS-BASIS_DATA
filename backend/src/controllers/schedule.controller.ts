@@ -17,6 +17,7 @@ export const getAvailableSchedules = async (req: Request, res: Response, next: N
     });
   } catch (error) {
     // Jika ada error database, lempar ke middleware error
+        // Jika ada error database, lempar ke middleware error
     next(error);
   }
 };

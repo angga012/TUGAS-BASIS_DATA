@@ -1,3 +1,5 @@
+//test
+
 import { Router } from "express";
 import { addBooking, getBookings } from "../controllers/booking.controller";
 

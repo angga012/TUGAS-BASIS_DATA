@@ -7,9 +7,9 @@ import {
   deleteField,
 } from "../services/field.service";
 
-/* =========================
+/*
    GET FIELDS
-========================= */
+*/
 export async function getFields(req: Request, res: Response) {
   try {
     const id = req.params.id ? Number(req.params.id) : null;
