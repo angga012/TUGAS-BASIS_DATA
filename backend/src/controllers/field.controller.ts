@@ -30,7 +30,7 @@ export async function getFields(req: Request, res: Response) {
 }
 
 /* =========================
-   CREATE FIELD
+   CREATE FIELDD
 ========================= */
 export async function addField(req: Request, res: Response) {
   try {

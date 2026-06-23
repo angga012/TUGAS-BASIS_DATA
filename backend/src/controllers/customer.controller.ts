@@ -45,7 +45,7 @@ export async function getCustomer(
     if (!customer) {
       return error(res, "Customer not found", 404);
     }
-
+    
     return success(
       res,
       "Customer fetched successfully",
