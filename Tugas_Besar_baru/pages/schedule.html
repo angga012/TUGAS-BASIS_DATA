@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jadwal - Futsal Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/form.css" />
+  </head>
+  <body data-page="schedule">
+    <div class="app-shell">
+      <div class="page-shell">
+        <section class="page-header">
+          <div>
+            <h2>Jadwal</h2>
+            <p>Atur slot bermain, hari operasional, dan jam sewa</p>
+          </div>
+          <div class="btn-group"><button class="btn btn-primary"><i class="fa-solid fa-plus"></i> Tambah Jadwal</button><button class="btn btn-outline"><i class="fa-solid fa-calendar-day"></i> Filter Tanggal</button></div>
+        </section>
+        <section class="grid-2">
+          <article class="card">
+            <h3 class="panel-title">Form Jadwal</h3>
+            <form id="scheduleForm" class="form-grid" style="margin-top:10px;">
+              <input type="hidden" id="scheduleId" />
+              <div class="field"><label>Lapangan</label><select id="scheduleField"><option>A1</option><option>B2</option><option>C3</option></select></div>
+              <div class="field"><label>Tanggal</label><input id="scheduleDate" type="date" required /></div>
+              <div class="field"><label>Jam Mulai</label><input id="scheduleStart" type="time" required /></div>
+              <div class="field"><label>Jam Selesai</label><input id="scheduleEnd" type="time" required /></div>
+              <div class="field"><label>Status</label><select id="scheduleStatus"><option>Available</option><option>Booked</option></select></div>
+              <div class="btn-group" style="margin-top:6px; grid-column:1 / -1;"><button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Simpan</button><button type="reset" class="btn btn-outline"><i class="fa-solid fa-xmark"></i> Batal</button></div>
+            </form>
+          </article>
+          <article class="card">
+            <h3 class="panel-title">Filter Berdasarkan Tanggal</h3>
+            <div class="field"><label>Pilih Tanggal</label><input id="scheduleFilter" type="date" /></div>
+            <div class="helper">Filter jadwal untuk melihat slot yang tersedia pada hari tertentu.</div>
+          </article>
+        </section>
+        <article class="card"><div class="action-row"><div><h3 class="panel-title">Tabel Jadwal</h3><p class="panel-sub">Daftar slot jadwal yang sudah dibuat</p></div><button class="btn btn-info"><i class="fa-solid fa-download"></i> Export</button></div><div class="table-wrap"><table><thead><tr><th>ID Jadwal</th><th>Lapangan</th><th>Tanggal</th><th>Jam Mulai</th><th>Jam Selesai</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="scheduleTableBody"></tbody></table></div></article>
+      </div>
+    </div>
+    <script src="../js/main.js"></script>
+    <script src="../js/schedule.js"></script>
+  </body>
+</html>

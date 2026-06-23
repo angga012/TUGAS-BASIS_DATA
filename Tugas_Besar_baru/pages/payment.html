@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pembayaran - Futsal Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/form.css" />
+  </head>
+  <body data-page="payment">
+    <div class="app-shell">
+      <div class="page-shell">
+        <section class="page-header">
+          <div>
+            <h2>Pembayaran</h2>
+            <p>Kelola transaksi, metode pembayaran, dan riwayat pembayaran</p>
+            <div class="search-box">
+              <input id="paymentSearch" type="search" placeholder="Cari ID, booking, metode, status" />
+            </div>
+          </div>
+          <div class="btn-group"><button id="addPaymentBtn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Tambah Pembayaran</button><button id="refreshPaymentBtn" class="btn btn-secondary"><i class="fa-solid fa-rotate-right"></i> Refresh</button></div>
+        </section>
+        <section class="grid-2">
+          <article class="card">
+            <h3 class="panel-title">Form Pembayaran</h3>
+            <div class="form-grid" style="margin-top:10px;">
+              <input type="hidden" id="paymentId" />
+              <div class="field"><label>No. Booking</label><input id="paymentBooking" type="text" placeholder="BK-1024" /></div>
+              <div class="field"><label>Metode Pembayaran</label><select id="paymentMethod"><option>Cash</option><option>Transfer</option><option>E-Wallet</option></select></div>
+              <div class="field"><label>Tanggal Bayar</label><input id="paymentDate" type="date" /></div>
+              <div class="field"><label>Jumlah Bayar</label><input id="paymentAmount" type="text" placeholder="Rp 120.000" /></div>
+              <div class="field"><label>Status</label><select id="paymentStatus"><option>Lunas</option><option>DP</option><option>Pending</option></select></div>
+            </div>
+            <div class="btn-group" style="margin-top:12px;"><button id="savePaymentBtn" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Simpan</button><button id="cancelPaymentBtn" class="btn btn-outline"><i class="fa-solid fa-xmark"></i> Batal</button></div>
+          </article>
+          <article class="card">
+            <h3 class="panel-title">Filter Metode Pembayaran</h3>
+            <div class="filter-row" style="margin-top:10px;">
+              <button class="filter-chip active" data-method="All">Semua</button>
+              <button class="filter-chip" data-method="Cash">Cash</button>
+              <button class="filter-chip" data-method="Transfer">Transfer</button>
+              <button class="filter-chip" data-method="E-Wallet">E-Wallet</button>
+            </div>
+          </article>
+        </section>
+        <article class="card">
+          <div class="action-row">
+            <div>
+              <h3 class="panel-title">Riwayat Pembayaran</h3>
+              <p class="panel-sub">Daftar transaksi pembayaran yang sudah diterima</p>
+            </div>
+            <div class="btn-group"><button class="btn btn-warning" id="exportPaymentBtn"><i class="fa-solid fa-file-export"></i> Export</button></div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>ID Pembayaran</th><th>Booking</th><th>Metode Pembayaran</th><th>Tanggal Bayar</th><th>Jumlah Bayar</th><th>Status</th><th>Aksi</th></tr></thead>
+              <tbody id="paymentTableBody"></tbody>
+            </table>
+          </div>
+          <div class="pagination" id="paymentPagination"></div>
+        </article>
+      </div>
+    </div>
+    <div class="loading-overlay hidden"><div class="loader"><div></div><span>Memuat transaksi pembayaran...</span></div></div>
+    <script src="../js/main.js"></script>
+    <script src="../js/payment.js"></script>
+  </body>
+</html>
